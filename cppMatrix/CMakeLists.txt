@@ -20,13 +20,13 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  test_matrix
-  test_matrix.cpp
+  testMatrix
+  testMatrix.cpp
 )
 target_link_libraries(
-  test_matrix
+  testMatrix
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(test_matrix)
+gtest_discover_tests(testMatrix)

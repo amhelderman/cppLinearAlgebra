@@ -25,21 +25,6 @@ public:
     Matrix<T, rows, cols> operator+(const Matrix<T, rows, cols>& other) const;
     Matrix<T, rows, cols> operator-(const Matrix<T, rows, cols>& other) const;
 
-    // // operator* (matrix multiplication)
-    // template <typename U, int otherRows, int otherCols>
-    // Matrix<T, rows, otherCols> operator*(const Matrix<U, otherRows, otherCols>& other) const;
-
-
-    // template <typename T, int rows, int cols, typename U, int otherRows, int otherCols>
-    // auto operator*(const Matrix<T, rows, cols>& left, const Matrix<U, otherRows, otherCols>& right)
-    //     -> Matrix<decltype(std::declval<T>() * std::declval<U>()), rows, otherCols>;
-
-    //     // Declaration for the specialized operator*
-    // template <typename U, int otherRows, int otherCols>
-    // friend auto operator*(const Matrix<T, rows, cols>& left, const Matrix<U, otherRows, otherCols>& right)
-    //     -> Matrix<decltype(std::declval<T>() * std::declval<U>()), rows, otherCols>;
-
-
         
     // Declaration and definition for the specialized operator*
     // could replace matrix number datatype with decltype(std::declval<T>() * std::declval<U>())
@@ -193,26 +178,6 @@ Matrix<T, rows, cols> Matrix<T, rows, cols>::operator-(const Matrix<T, rows, col
     }
     return result;
 }
-
-// template <typename T, int rows, int cols, typename U, int otherRows, int otherCols>
-// auto operator*(const Matrix<T, rows, cols>& left, const Matrix<U, otherRows, otherCols>& right)
-//     -> Matrix<decltype(std::declval<T>() * std::declval<U>()), rows, otherCols>
-// {
-//     static_assert(cols == otherRows, "Matrix multiplication requires the number of columns in the first matrix to equal the number of rows in the second matrix");
-    
-//     Matrix<decltype(std::declval<T>() * std::declval<U>()), rows, otherCols> result;
-
-//     for (int i = 0; i < rows; i++) {
-//         for (int j = 0; j < otherCols; j++) {
-//             result.set(i, j, 0);
-//             for (int k = 0; k < cols; k++) {
-//                 result.data[i][j] += left.get(i, k) * right.get(k, j);
-//             }
-//         }
-//     }
-
-//     return result;
-// }
 
 
 template <typename T, int rows, int cols>
